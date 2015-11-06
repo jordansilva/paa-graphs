@@ -7,9 +7,49 @@
 //
 
 #include <iostream>
+#include "src/helper/Settings.hpp"
+#include "src/helper/NodeHelper.hpp"
+#include "src/domain/Node.hpp"
+#include "src/algorithms/astar.hpp"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    string fInput = "";
+    bool fDebug = false;
+    
+    if (argc > 1) {
+        fInput = argv[1];
+        if (argc > 2)
+            fDebug = (bool)argv[2];
+    }
+    else {
+        cout << "Entrada inválida" << endl;
+        return 0;
+    }
+    
+    Settings settings(fInput);
+    NodeHelper::printMatrix(settings.getMatrix(), settings.getDimension());
+    cout << endl;
+    
+    Node node1(settings.getMatrix(), 0, Movement::NONE);
+    node1.depth = 0;
+    node1.heuristic = Manhattan::calculate(node1.matrix, settings.getDimension());
+    node1.total = node1.depth + node1.heuristic;
+    
+    astar::execute(node1, settings.getDimension());
+//
+//    cout << "State 1" << endl;
+//    ;
+//    NodeHelper::printMatrix(node1.matrix, settings.getSize());
+//    cout << endl;
+//    
+//    cout << "State 2" << endl;
+//    Node node2(node1.matrix, 1, Movement::LEFT);
+//    NodeHelper::printMatrix(node2.matrix, settings.getSize());
+//    cout << endl;
+    
+//    //Greedy
+//    cout << "Greedy" << endl;
+//    Greedy agAlgorithm(settings.getFoes(), settings.getLevels(), fDebug);
+    
     return 0;
 }

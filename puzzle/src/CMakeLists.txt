@@ -1,0 +1,3 @@
+ADD_SUBDIRECTORY(algorithms)
+ADD_SUBDIRECTORY(domain)
+ADD_SUBDIRECTORY(helper)

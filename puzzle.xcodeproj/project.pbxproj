@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A0E25241BE939A0005C73CB /* NodeHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A0E25221BE939A0005C73CB /* NodeHelper.cpp */; };
 		7A23CBF21BE91025007B1A40 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A23CBF11BE91025007B1A40 /* main.cpp */; };
+		7A23CC1A1BE9198C007B1A40 /* Settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A23CC181BE9198C007B1A40 /* Settings.cpp */; };
+		7A23CC1D1BE9199F007B1A40 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A23CC1B1BE9199F007B1A40 /* Node.cpp */; };
+		7A6370D71BED14A100884660 /* astar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A6370D51BED14A100884660 /* astar.cpp */; };
+		7A6370DA1BED28C100884660 /* Manhattan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A6370D81BED28C100884660 /* Manhattan.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +28,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7A0E25221BE939A0005C73CB /* NodeHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeHelper.cpp; sourceTree = "<group>"; };
+		7A0E25231BE939A0005C73CB /* NodeHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NodeHelper.hpp; sourceTree = "<group>"; };
 		7A23CBEE1BE91025007B1A40 /* puzzle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = puzzle; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A23CBF11BE91025007B1A40 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7A23CBFE1BE918D9007B1A40 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
+		7A23CC181BE9198C007B1A40 /* Settings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Settings.cpp; sourceTree = "<group>"; };
+		7A23CC191BE9198C007B1A40 /* Settings.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Settings.hpp; sourceTree = "<group>"; };
+		7A23CC1B1BE9199F007B1A40 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Node.cpp; path = puzzle/src/domain/Node.cpp; sourceTree = SOURCE_ROOT; };
+		7A23CC1C1BE9199F007B1A40 /* Node.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Node.hpp; path = puzzle/src/domain/Node.hpp; sourceTree = SOURCE_ROOT; };
+		7A6370D51BED14A100884660 /* astar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = astar.cpp; sourceTree = "<group>"; };
+		7A6370D61BED14A100884660 /* astar.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = astar.hpp; sourceTree = "<group>"; };
+		7A6370D81BED28C100884660 /* Manhattan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Manhattan.cpp; sourceTree = "<group>"; };
+		7A6370D91BED28C100884660 /* Manhattan.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Manhattan.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,8 +57,8 @@
 		7A23CBE51BE91025007B1A40 = {
 			isa = PBXGroup;
 			children = (
-				7A23CBF01BE91025007B1A40 /* puzzle */,
 				7A23CBEF1BE91025007B1A40 /* Products */,
+				7A23CBF01BE91025007B1A40 /* puzzle */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +73,52 @@
 		7A23CBF01BE91025007B1A40 /* puzzle */ = {
 			isa = PBXGroup;
 			children = (
+				7A23CBFE1BE918D9007B1A40 /* data */,
+				7A23CBFD1BE91755007B1A40 /* src */,
 				7A23CBF11BE91025007B1A40 /* main.cpp */,
 			);
 			path = puzzle;
+			sourceTree = "<group>";
+		};
+		7A23CBFD1BE91755007B1A40 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				7A23CC171BE9197E007B1A40 /* helper */,
+				7A23CC161BE91979007B1A40 /* domain */,
+				7A23CC0C1BE9195D007B1A40 /* algorithms */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		7A23CC0C1BE9195D007B1A40 /* algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				7A6370D51BED14A100884660 /* astar.cpp */,
+				7A6370D61BED14A100884660 /* astar.hpp */,
+			);
+			path = algorithms;
+			sourceTree = "<group>";
+		};
+		7A23CC161BE91979007B1A40 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				7A23CC1B1BE9199F007B1A40 /* Node.cpp */,
+				7A23CC1C1BE9199F007B1A40 /* Node.hpp */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		7A23CC171BE9197E007B1A40 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				7A23CC181BE9198C007B1A40 /* Settings.cpp */,
+				7A23CC191BE9198C007B1A40 /* Settings.hpp */,
+				7A0E25221BE939A0005C73CB /* NodeHelper.cpp */,
+				7A0E25231BE939A0005C73CB /* NodeHelper.hpp */,
+				7A6370D81BED28C100884660 /* Manhattan.cpp */,
+				7A6370D91BED28C100884660 /* Manhattan.hpp */,
+			);
+			path = helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +177,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A23CC1D1BE9199F007B1A40 /* Node.cpp in Sources */,
+				7A6370D71BED14A100884660 /* astar.cpp in Sources */,
+				7A6370DA1BED28C100884660 /* Manhattan.cpp in Sources */,
+				7A0E25241BE939A0005C73CB /* NodeHelper.cpp in Sources */,
+				7A23CC1A1BE9198C007B1A40 /* Settings.cpp in Sources */,
 				7A23CBF21BE91025007B1A40 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +271,12 @@
 		7A23CBF61BE91025007B1A40 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_OPTIMIZATION_LEVEL = 3;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-O3",
+					"-std=c++11",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -214,6 +284,11 @@
 		7A23CBF71BE91025007B1A40 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-O3",
+					"-std=c++11",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -237,6 +312,7 @@
 				7A23CBF71BE91025007B1A40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
