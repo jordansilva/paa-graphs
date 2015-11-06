@@ -12,19 +12,24 @@
 #include "src/domain/Node.hpp"
 #include "src/algorithms/astar.hpp"
 
+#define INPUT_3 "/Volumes/Tyr/Projects/UFMG/Disciplinas/PAA/TP 3/puzzle/puzzle/data/input.txt"
+#define INPUT_4 "/Volumes/Tyr/Projects/UFMG/Disciplinas/PAA/TP 3/puzzle/puzzle/data/input4.txt"
+
 int main(int argc, const char * argv[]) {
-    string fInput = "";
-    bool fDebug = false;
+//    string fInput = "";
+//    bool fDebug = false;
+//    
+//    if (argc > 1) {
+//        fInput = argv[1];
+//        if (argc > 2)
+//            fDebug = (bool)argv[2];
+//    }
+//    else {
+//        cout << "Entrada inválida" << endl;
+//        return 0;
+//    }
     
-    if (argc > 1) {
-        fInput = argv[1];
-        if (argc > 2)
-            fDebug = (bool)argv[2];
-    }
-    else {
-        cout << "Entrada inválida" << endl;
-        return 0;
-    }
+    string fInput = INPUT_4;
     
     Settings settings(fInput);
     NodeHelper::printMatrix(settings.getMatrix(), settings.getDimension());

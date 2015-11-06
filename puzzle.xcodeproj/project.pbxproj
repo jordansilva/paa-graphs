@@ -39,8 +39,8 @@
 		7A23CC1C1BE9199F007B1A40 /* Node.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Node.hpp; path = puzzle/src/domain/Node.hpp; sourceTree = SOURCE_ROOT; };
 		7A6370D51BED14A100884660 /* astar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = astar.cpp; sourceTree = "<group>"; };
 		7A6370D61BED14A100884660 /* astar.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = astar.hpp; sourceTree = "<group>"; };
-		7A6370D81BED28C100884660 /* Manhattan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Manhattan.cpp; sourceTree = "<group>"; };
-		7A6370D91BED28C100884660 /* Manhattan.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Manhattan.hpp; sourceTree = "<group>"; };
+		7A6370D81BED28C100884660 /* Manhattan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Manhattan.cpp; path = ../helper/Manhattan.cpp; sourceTree = "<group>"; };
+		7A6370D91BED28C100884660 /* Manhattan.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Manhattan.hpp; path = ../helper/Manhattan.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +93,8 @@
 		7A23CC0C1BE9195D007B1A40 /* algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				7A6370D81BED28C100884660 /* Manhattan.cpp */,
+				7A6370D91BED28C100884660 /* Manhattan.hpp */,
 				7A6370D51BED14A100884660 /* astar.cpp */,
 				7A6370D61BED14A100884660 /* astar.hpp */,
 			);
@@ -115,8 +117,6 @@
 				7A23CC191BE9198C007B1A40 /* Settings.hpp */,
 				7A0E25221BE939A0005C73CB /* NodeHelper.cpp */,
 				7A0E25231BE939A0005C73CB /* NodeHelper.hpp */,
-				7A6370D81BED28C100884660 /* Manhattan.cpp */,
-				7A6370D91BED28C100884660 /* Manhattan.hpp */,
 			);
 			path = helper;
 			sourceTree = "<group>";

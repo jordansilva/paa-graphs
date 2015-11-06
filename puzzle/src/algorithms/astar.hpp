@@ -11,8 +11,8 @@
 
 #include <stdio.h>
 #include <queue>
+#include "Manhattan.hpp"
 #include "../helper/NodeHelper.hpp"
-#include "../helper/Manhattan.hpp"
 #include "../domain/Node.hpp"
 
 using namespace std;

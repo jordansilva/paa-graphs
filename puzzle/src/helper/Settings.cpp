@@ -27,15 +27,12 @@ void Settings::init(string filename) {
         getline(infileFoes, line);
         this->mDimension = stoi(line);
 
-        int i = 0;
         while (infileFoes >> line) {
             if (*line.c_str() != NodeHelper::BLANK)
                 this->mMatrix.push_back(stoi(line));
             else
                 this->mMatrix.push_back((char)NodeHelper::BLANK);
-            i++;
         }
-        cout << "i: " << i << endl;
     }
     catch (const std::exception& e) {
         cout << e.what() << endl;
