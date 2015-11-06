@@ -30,12 +30,18 @@ int main(int argc, const char * argv[]) {
     NodeHelper::printMatrix(settings.getMatrix(), settings.getDimension());
     cout << endl;
     
+    clock_t begin = clock();
+    
     Node node1(settings.getMatrix(), 0, Movement::NONE);
     node1.depth = 0;
     node1.heuristic = Manhattan::calculate(node1.matrix, settings.getDimension());
     node1.total = node1.depth + node1.heuristic;
     
     astar::execute(node1, settings.getDimension());
+    
+    clock_t end = clock();
+    double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+    cout << "Time elapsed: " << elapsed_secs << endl;
 //
 //    cout << "State 1" << endl;
 //    ;

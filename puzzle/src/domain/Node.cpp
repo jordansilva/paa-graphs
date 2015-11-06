@@ -55,25 +55,25 @@ void Node::generateHash() {
 }
 
 int Node::getNextMovement(int position) {
-    int size = sqrt(this->matrix.size());
-    
+        
+    int dimension = sqrt(this->matrix.size());
     switch (this->movement) {
         case 1:
             //UP
-            if (position-size > 0)
-                return position - size;
+            if ((position - dimension) >= 0)
+                return position - dimension;
             else
                 return position;
         case 2:
             //RIGHT
-            if (position + 1 < size*2)
+            if ((position + 1) < (matrix.size()))
                 return position + 1;
             else
                 return position;
         case 3:
             //DOWN
-            if ((position+size) < size*2)
-                return position + size;
+            if ((position + dimension) < (matrix.size()))
+                return position + dimension;
             else
                 return position;
         case 4:
