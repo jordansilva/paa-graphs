@@ -11,19 +11,21 @@
 
 #include <stdio.h>
 #include <queue>
-#include "Manhattan.hpp"
+#include "Heuristic.hpp"
 #include "../helper/NodeHelper.hpp"
 #include "../domain/Node.hpp"
 
 using namespace std;
 
-class astar {
+class AStar {
 private:
+    Node initial;
+    int dimension;
 public:
-    astar();
-    virtual ~astar();
+    AStar(vector<char> matrix, int dimension);
+    virtual ~AStar();
     
-    static void execute(Node initial, int dimension);
+    list<Node> execute(Heuristic heuristic);
 };
 
-#endif /* astar_hpp */
+#endif /* AStar_hpp */

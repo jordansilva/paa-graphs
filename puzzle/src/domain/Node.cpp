@@ -8,8 +8,12 @@
 
 #include "Node.hpp"
 
+Node::Node() {
+}
+
 Node::Node(vector<char> matrix, size_t parentId, int movement) {
     this->_id = 0;
+    this->depth = 0;
     this->_parent = parentId;
     this->movement = movement;
 
@@ -32,12 +36,8 @@ void Node::generate(vector<char> parentMatrix) {
     
     //change position
     int nextPosition = getNextMovement(blankPosition);
-    if (blankPosition != -1 && blankPosition != nextPosition) {
+    if (blankPosition != -1 && blankPosition != nextPosition)
         swap(this->matrix[blankPosition], this->matrix[nextPosition]);
-//        char tmp = this->matrix[blankPosition];
-//        this->matrix[blankPosition] = this->matrix[nextPosition];
-//        this->matrix[nextPosition] = tmp;
-    }
     
     //_id
     generateHash();

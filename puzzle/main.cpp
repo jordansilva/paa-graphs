@@ -10,10 +10,9 @@
 #include "src/helper/Settings.hpp"
 #include "src/helper/NodeHelper.hpp"
 #include "src/domain/Node.hpp"
-#include "src/algorithms/astar.hpp"
+#include "src/algorithms/AStar.hpp"
 
-#define INPUT_3 "/Volumes/Tyr/Projects/UFMG/Disciplinas/PAA/TP 3/puzzle/puzzle/data/input.txt"
-#define INPUT_4 "/Volumes/Tyr/Projects/UFMG/Disciplinas/PAA/TP 3/puzzle/puzzle/data/input4.txt"
+#define INPUT_FOLDER "/Volumes/Tyr/Projects/UFMG/Disciplinas/PAA/TP 3/puzzle/puzzle/data/"
 
 int main(int argc, const char * argv[]) {
 //    string fInput = "";
@@ -28,39 +27,40 @@ int main(int argc, const char * argv[]) {
 //        cout << "Entrada inválida" << endl;
 //        return 0;
 //    }
-    
-    string fInput = INPUT_4;
-    
-    Settings settings(fInput);
-    NodeHelper::printMatrix(settings.getMatrix(), settings.getDimension());
-    cout << endl;
-    
-    clock_t begin = clock();
-    
-    Node node1(settings.getMatrix(), 0, Movement::NONE);
-    node1.depth = 0;
-    node1.heuristic = Manhattan::calculate(node1.matrix, settings.getDimension());
-    node1.total = node1.depth + node1.heuristic;
-    
-    astar::execute(node1, settings.getDimension());
-    
-    clock_t end = clock();
-    double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-    cout << "Time elapsed: " << elapsed_secs << endl;
-//
-//    cout << "State 1" << endl;
-//    ;
-//    NodeHelper::printMatrix(node1.matrix, settings.getSize());
-//    cout << endl;
-//    
-//    cout << "State 2" << endl;
-//    Node node2(node1.matrix, 1, Movement::LEFT);
-//    NodeHelper::printMatrix(node2.matrix, settings.getSize());
-//    cout << endl;
-    
-//    //Greedy
-//    cout << "Greedy" << endl;
-//    Greedy agAlgorithm(settings.getFoes(), settings.getLevels(), fDebug);
+
+    string fInput = "";
+    for (int i = 4; i <= 5; i++) {
+        fInput = INPUT_FOLDER;
+        fInput += "input" + to_string(i) + ".txt";
+        cout << endl << "input " << i << ".txt" << endl;
+        
+        Settings settings(fInput);
+        
+        //Elapsed Secs
+        clock_t begin = clock();
+        
+        //Heuristic
+        int heuristic = Method::MANHATTAN;
+        Heuristic funcH(settings.getDimension(), heuristic);
+
+        if (!funcH.isSolved()) {
+            cout << "Heurística não resolve puzzle " << settings.getDimension() << "x" << settings.getDimension() << "." << endl;
+            continue;
+        }
+        
+        //A*
+        AStar aStar(settings.getMatrix(), settings.getDimension());
+        list<Node> result = aStar.execute(funcH);
+        if (result.size() > 0)
+            NodeHelper::printSolution(result);
+        else
+            cout << "sem solução" << endl;
+        
+        //Elapsed Secs
+        clock_t end = clock();
+        double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+        cout << "Time elapsed: " << elapsed_secs << endl;    
+    }
     
     return 0;
 }

@@ -20,11 +20,13 @@ using namespace std;
 
 class Node {
 private:
-    void generate(vector<char> matrix);
     void generateHash();
     int getNextMovement(int position);
 public:
+    Node();
     Node(vector<char> matrix, size_t parentId, int movement);
+    void generate(vector<char> matrix);
+
     virtual ~Node();
 
     size_t _id = 0;
@@ -57,7 +59,7 @@ inline string Node::getMovementLabel() {
         case 4:
             return "esquerda";
         default:
-            return "nenhum";
+            return "";
     }
 }
 

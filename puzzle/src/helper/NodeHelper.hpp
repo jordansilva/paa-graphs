@@ -14,6 +14,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <list>
 #include "../domain/Node.hpp"
 
 using namespace std;
@@ -21,8 +22,10 @@ using namespace std;
 class NodeHelper {
 private:
 public:
-    static void printMatrix(vector<char> matrix, int size);
-    static void printMatrix(Node node, int size);
+    static bool checkSolvable(Node node, int dimension);
+    static void printMatrix(vector<char> matrix, int dimension);
+    static void printMatrix(Node node, int dimension);
+    static void printSolution(list<Node> nodes);
     
     static const char BLANK = '_';
 };
@@ -56,5 +59,17 @@ inline void NodeHelper::printMatrix(Node node, int dimension) {
 }
 
 
+inline void NodeHelper::printSolution(list<Node> nodes) {
+    string result = "";
+    for(auto &item : nodes) {
+        if (result.length() > 0)
+            result += ", ";
+
+        result += item.getMovementLabel();
+    }
+    
+    cout << "Movimentos: " << nodes.size()-1 << endl;
+    cout << result << endl;
+}
 
 #endif /* NodeHelper_hpp */
