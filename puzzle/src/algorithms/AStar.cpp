@@ -34,7 +34,11 @@ list<Node> AStar::execute(Heuristic heuristic) {
         while (!queue.empty()) {
             Node currentNode = queue.top();
             queue.pop();
-            closedList.insert(make_pair(currentNode._id, currentNode));
+            
+            if (closedList.find(currentNode._id) == closedList.end())
+                closedList.insert(make_pair(currentNode._id, currentNode));
+            else if (closedList.at(currentNode._id).total >= currentNode.total)
+                closedList.at(currentNode._id) = currentNode;
             
             //Check if Node is goal
             if (currentNode.heuristic == 0) {
@@ -45,25 +49,23 @@ list<Node> AStar::execute(Heuristic heuristic) {
             //generate each state node_sucessor
             for (int i = 1; i <= 4; i++) {
                 Node successor(currentNode.matrix, currentNode._id, i);
-                successor.depth = currentNode.depth + 1;
-
-                if (successor._id == currentNode._id)
+                if (successor.invalid)
                     continue;
                 
+                successor.depth = currentNode.depth + 1;
                 successor.heuristic = heuristic.calculate(successor.matrix);
                 successor.total = successor.heuristic + successor.depth;
-
+                
                 //Closed list
                 unordered_map<size_t, Node>::const_iterator successorClosed = closedList.find(successor._id);
-                if (successorClosed == closedList.end())
+                if (successorClosed == closedList.end() || successorClosed->second.total > successor.total)
                     queue.push(successor);
             }
         }
         
         while (last_id != 0) {
-            unordered_map<size_t, Node>::const_iterator successorClosed = closedList.find(last_id);
-            if (successorClosed != closedList.end()) {
-                Node n = successorClosed->second;
+            if (closedList.find(last_id) != closedList.end()) {
+                Node n = closedList.at(last_id);
                 result.push_back(n);
                 last_id = n._parent;
             }
@@ -72,6 +74,7 @@ list<Node> AStar::execute(Heuristic heuristic) {
         }
         
         result.reverse();
+        cout << "Closed List: " << closedList.size() << endl;
     }
     
     return result;

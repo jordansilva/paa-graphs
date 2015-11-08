@@ -29,9 +29,6 @@ inline float Manhattan::calculate(vector<char> vector, int dimension) {
         int row = i / dimension;
         int column = i % dimension;
         
-//        int target_row = 0;
-//        int target_column = 0;
-        
         if (vector[i] != '_') {
             int target_row = vector[i] / dimension;
             int target_column = vector[i] % dimension;

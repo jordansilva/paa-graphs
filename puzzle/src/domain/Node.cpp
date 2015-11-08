@@ -16,6 +16,7 @@ Node::Node(vector<char> matrix, size_t parentId, int movement) {
     this->depth = 0;
     this->_parent = parentId;
     this->movement = movement;
+    this->invalid = false;
 
     generate(matrix);
 }
@@ -38,6 +39,8 @@ void Node::generate(vector<char> parentMatrix) {
     int nextPosition = getNextMovement(blankPosition);
     if (blankPosition != -1 && blankPosition != nextPosition)
         swap(this->matrix[blankPosition], this->matrix[nextPosition]);
+    else
+        this->invalid = true;
     
     //_id
     generateHash();

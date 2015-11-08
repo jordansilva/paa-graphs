@@ -32,6 +32,7 @@ public:
     size_t _id = 0;
     size_t _parent = 0;
     int movement = 0;
+    bool invalid = false;
     
     vector<char> matrix;
     

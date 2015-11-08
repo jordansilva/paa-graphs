@@ -31,7 +31,8 @@ public:
 
 enum Method {
     MANHATTAN = 1,
-    MISPLACED_TILES = 2
+    MISPLACED_TILES = 2,
+    MANHATTAN_HAMMING = 3
 };
 
 inline bool Heuristic::isSolved() {
@@ -40,6 +41,8 @@ inline bool Heuristic::isSolved() {
             return true;
         case Method::MISPLACED_TILES:
             return (dimension != 4);
+        case Method::MANHATTAN_HAMMING:
+            return true;
         default:
             return true;
     }
@@ -51,6 +54,8 @@ inline float Heuristic::calculate(vector<char> vector) {
             return Manhattan::calculate(vector, this->dimension);
         case Method::MISPLACED_TILES:
             return MisplacedTiles::calculate(vector, this->dimension);
+        case Method::MANHATTAN_HAMMING:
+            return Manhattan::calculate(vector, this->dimension) + MisplacedTiles::calculate(vector, this->dimension);
         default:
             return -1;
     }    

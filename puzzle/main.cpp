@@ -29,10 +29,13 @@ int main(int argc, const char * argv[]) {
 //    }
 
     string fInput = "";
-    for (int i = 4; i <= 5; i++) {
+    for (int i = 1; i <= 21; i++) {
         fInput = INPUT_FOLDER;
         fInput += "input" + to_string(i) + ".txt";
-        cout << endl << "input " << i << ".txt" << endl;
+        cout << "input " << i << ".txt" << endl;
+        
+        if (i == 20)
+            continue;
         
         Settings settings(fInput);
         
@@ -40,7 +43,7 @@ int main(int argc, const char * argv[]) {
         clock_t begin = clock();
         
         //Heuristic
-        int heuristic = Method::MANHATTAN;
+        int heuristic = Method::MANHATTAN_HAMMING;
         Heuristic funcH(settings.getDimension(), heuristic);
 
         if (!funcH.isSolved()) {
@@ -59,7 +62,8 @@ int main(int argc, const char * argv[]) {
         //Elapsed Secs
         clock_t end = clock();
         double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-        cout << "Time elapsed: " << elapsed_secs << endl;    
+        cout << "Time elapsed: " << elapsed_secs << endl;
+        cout << endl;
     }
     
     return 0;

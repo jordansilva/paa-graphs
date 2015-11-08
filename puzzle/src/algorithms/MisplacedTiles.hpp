@@ -5,6 +5,7 @@
 //  Created by Jordan Silva on 11/7/15.
 //  Copyright © 2015 Jordan Silva. All rights reserved.
 //
+//  a.k.a Hamming Distance - heuristic
 
 #ifndef MisplacedTiles_hpp
 #define MisplacedTiles_hpp

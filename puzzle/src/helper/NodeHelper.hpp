@@ -23,6 +23,7 @@ class NodeHelper {
 private:
 public:
     static bool checkSolvable(Node node, int dimension);
+    static bool isInvertedMovement(int movement, int nextMovement);
     static void printMatrix(vector<char> matrix, int dimension);
     static void printMatrix(Node node, int dimension);
     static void printSolution(list<Node> nodes);
@@ -37,6 +38,16 @@ enum Movement {
     DOWN = 3,
     LEFT = 4
 };
+
+inline bool NodeHelper::isInvertedMovement(int movement, int nextMovement) {
+    if ((movement == 1 && nextMovement == 3) || (movement == 3 && nextMovement == 1))
+        return true;
+    
+    if ((movement == 2 && nextMovement == 4) || (movement == 4 && nextMovement == 2))
+        return true;
+    
+    return false;
+}
 
 inline void NodeHelper::printMatrix(vector<char> matrix, int dimension) {
     for (int i = 0; i < matrix.size(); i++) {
