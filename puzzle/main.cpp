@@ -29,7 +29,7 @@ int main(int argc, const char * argv[]) {
 //    }
 
     string fInput = "";
-    for (int i = 1; i <= 21; i++) {
+    for (int i = 5; i <= 5; i++) {
         fInput = INPUT_FOLDER;
         fInput += "input" + to_string(i) + ".txt";
         cout << "input " << i << ".txt" << endl;
@@ -43,8 +43,9 @@ int main(int argc, const char * argv[]) {
         clock_t begin = clock();
         
         //Heuristic
-        int heuristic = Method::MANHATTAN_HAMMING;
+        int heuristic = Method::LINEAR_CONFLICT;
         Heuristic funcH(settings.getDimension(), heuristic);
+        cout << funcH.calculate(settings.getMatrix()) << endl;
 
         if (!funcH.isSolved()) {
             cout << "Heurística não resolve puzzle " << settings.getDimension() << "x" << settings.getDimension() << "." << endl;

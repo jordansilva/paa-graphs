@@ -32,6 +32,8 @@
 		7A12E5C21BEEB50F00888C43 /* MisplacedTiles.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MisplacedTiles.hpp; sourceTree = "<group>"; };
 		7A12E5C51BEEB55100888C43 /* Manhattan.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Manhattan.hpp; sourceTree = "<group>"; };
 		7A12E5C81BEEBAE700888C43 /* Heuristic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Heuristic.hpp; sourceTree = "<group>"; };
+		7A12E5CB1BEFA60B00888C43 /* WalkingDistance.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WalkingDistance.hpp; sourceTree = "<group>"; };
+		7A12E5CE1BEFFA3400888C43 /* LinearConflict.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LinearConflict.hpp; sourceTree = "<group>"; };
 		7A23CBEE1BE91025007B1A40 /* puzzle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = puzzle; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A23CBF11BE91025007B1A40 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		7A23CBFE1BE918D9007B1A40 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
@@ -98,6 +100,8 @@
 				7A6370D61BED14A100884660 /* AStar.hpp */,
 				7A12E5C21BEEB50F00888C43 /* MisplacedTiles.hpp */,
 				7A12E5C81BEEBAE700888C43 /* Heuristic.hpp */,
+				7A12E5CB1BEFA60B00888C43 /* WalkingDistance.hpp */,
+				7A12E5CE1BEFFA3400888C43 /* LinearConflict.hpp */,
 			);
 			path = algorithms;
 			sourceTree = "<group>";

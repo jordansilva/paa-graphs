@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include "Manhattan.hpp"
 #include "MisplacedTiles.hpp"
+#include "WalkingDistance.hpp"
+#include "LinearConflict.hpp"
 
 class Heuristic {
 private:
@@ -32,7 +34,9 @@ public:
 enum Method {
     MANHATTAN = 1,
     MISPLACED_TILES = 2,
-    MANHATTAN_HAMMING = 3
+    MANHATTAN_HAMMING = 3,
+    WALKING_DISTANCE = 4,
+    LINEAR_CONFLICT = 5
 };
 
 inline bool Heuristic::isSolved() {
@@ -42,6 +46,8 @@ inline bool Heuristic::isSolved() {
         case Method::MISPLACED_TILES:
             return (dimension != 4);
         case Method::MANHATTAN_HAMMING:
+            return true;
+        case Method::LINEAR_CONFLICT:
             return true;
         default:
             return true;
@@ -56,6 +62,8 @@ inline float Heuristic::calculate(vector<char> vector) {
             return MisplacedTiles::calculate(vector, this->dimension);
         case Method::MANHATTAN_HAMMING:
             return Manhattan::calculate(vector, this->dimension) + MisplacedTiles::calculate(vector, this->dimension);
+        case Method::LINEAR_CONFLICT:
+            return Manhattan::calculate(vector, this->dimension) + LinearConflict::calculate(vector, this->dimension);
         default:
             return -1;
     }    
