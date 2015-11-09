@@ -29,7 +29,7 @@ int main(int argc, const char * argv[]) {
 //    }
 
     string fInput = "";
-    for (int i = 5; i <= 5; i++) {
+    for (int i = 4; i <= 4; i++) {
         fInput = INPUT_FOLDER;
         fInput += "input" + to_string(i) + ".txt";
         cout << "input " << i << ".txt" << endl;
@@ -43,22 +43,23 @@ int main(int argc, const char * argv[]) {
         clock_t begin = clock();
         
         //Heuristic
-        int heuristic = Method::LINEAR_CONFLICT;
+        int heuristic = Method::MANHATTAN_HAMMING;
         Heuristic funcH(settings.getDimension(), heuristic);
         cout << funcH.calculate(settings.getMatrix()) << endl;
 
-        if (!funcH.isSolved()) {
-            cout << "Heurística não resolve puzzle " << settings.getDimension() << "x" << settings.getDimension() << "." << endl;
-            continue;
-        }
+//        if (!funcH.isSolved()) {
+//            cout << "Heurística não resolve puzzle " << settings.getDimension() << "x" << settings.getDimension() << "." << endl;
+//            continue;
+//        }
         
         //A*
         AStar aStar(settings.getMatrix(), settings.getDimension());
         list<Node> result = aStar.execute(funcH);
-        if (result.size() > 0)
+        if (result.size() > 0) {
             NodeHelper::printSolution(result);
+        }
         else
-            cout << "sem solução" << endl;
+            cout << "Sem solução" << endl;
         
         //Elapsed Secs
         clock_t end = clock();
