@@ -30,7 +30,7 @@ OUTDIR_RELEASE = puzzle/bin
 DEP_RELEASE = 
 OUT_RELEASE = $(OUTDIR_RELEASE)/puzzle
 
-OBJ_RELEASE = $(OBJDIR_RELEASE)/main.o $(OBJDIR_RELEASE)/src/domain/Node.o $(OBJDIR_RELEASE)/src/helper/Settings.o $(OBJDIR_RELEASE)/src/helper/NodeHelper.o $(OBJDIR_RELEASE)/src/algorithms/AStar.o $(OBJDIR_RELEASE)/src/algorithms/Heuristic.o $(OBJDIR_RELEASE)/src/algorithms/LinearConflict.o $(OBJDIR_RELEASE)/src/algorithms/Manhattan.o $(OBJDIR_RELEASE)/src/algorithms/MisplacedTiles.o $(OBJDIR_RELEASE)/src/algorithms/WalkingDistance.o
+OBJ_RELEASE = $(OBJDIR_RELEASE)/main.o $(OBJDIR_RELEASE)/src/domain/Node.o $(OBJDIR_RELEASE)/src/helper/Settings.o $(OBJDIR_RELEASE)/src/helper/NodeHelper.o $(OBJDIR_RELEASE)/src/algorithms/AStar.o $(OBJDIR_RELEASE)/src/algorithms/Heuristic.o $(OBJDIR_RELEASE)/src/algorithms/LinearConflict.o $(OBJDIR_RELEASE)/src/algorithms/Manhattan.o $(OBJDIR_RELEASE)/src/algorithms/MisplacedTiles.o
 
 all: release
 
@@ -74,9 +74,6 @@ $(OBJDIR_RELEASE)/src/algorithms/Manhattan.o: puzzle/src/algorithms/Manhattan.cp
 
 $(OBJDIR_RELEASE)/src/algorithms/MisplacedTiles.o: puzzle/src/algorithms/MisplacedTiles.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c puzzle/src/algorithms/MisplacedTiles.cpp -o $(OBJDIR_RELEASE)/src/algorithms/MisplacedTiles.o
-
-$(OBJDIR_RELEASE)/src/algorithms/WalkingDistance.o: puzzle/src/algorithms/WalkingDistance.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c puzzle/src/algorithms/WalkingDistance.cpp -o $(OBJDIR_RELEASE)/src/algorithms/WalkingDistance.o
 
 $(OBJDIR_RELEASE)/src/algorithms/AStar.o: puzzle/src/algorithms/AStar.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c puzzle/src/algorithms/AStar.cpp -o $(OBJDIR_RELEASE)/src/algorithms/AStar.o
